@@ -86,12 +86,18 @@
                                     <constraint firstAttribute="height" constant="60" id="i5s-NP-F4w"/>
                                 </constraints>
                                 <state key="normal" title="Lap"/>
+                                <connections>
+                                    <action selector="lapResetTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gnG-fd-bGw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWn-4O-jV6">
                                 <rect key="frame" x="215" y="267" width="60" height="60"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playPauseTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YEu-Te-boo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
