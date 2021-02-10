@@ -28,7 +28,9 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         let initCircleButton: (UIButton) -> Void = { button in
             button.layer.cornerRadius = 0.5 * button.bounds.size.width
-            button.backgroundColor = UIColor.lightGray
+            button.backgroundColor = UIColor.clear
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.black.cgColor
         }
         
         initCircleButton(self.playPauseButton)
@@ -78,12 +80,43 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBAction func lapResetTimer(_ sender: Any) {
+        if !self.isPlay {
+            self.resetMainTimer()
+            self.resetLapTimer()
+            self.changeButton(self.lapRestButton, title: "Lap", titleColor: UIColor.lightGray)
+            self.lapRestButton.isEnabled = false
+        } else {
+            if let timerLabelText = self.timerLabel.text {
+                self.laps.append(timerLabelText)
+            }
+            self.lapsTableView.reloadData()
+            self.resetLapTimer()
+            unowned let weakSelf = self
+            self.lapStopwatch.timer = Timer.scheduledTimer(timeInterval: 0.035, target: weakSelf, selector: Selector.updateLapTimer, userInfo: nil, repeats: true)
+            RunLoop.current.add(self.lapStopwatch.timer, forMode: .common)
+        }
     }
     
     // MARK: - Private Helpers
     fileprivate func changeButton (_ button: UIButton, title: String, titleColor: UIColor) {
         button.setTitle(title, for: UIControl.State())
         button.setTitleColor(titleColor, for: UIControl.State())
+    }
+    
+    fileprivate func resetMainTimer() {
+        resetTimer(self.mainStopwatch, label: self.timerLabel)
+        self.laps.removeAll()
+        self.lapsTableView.reloadData()
+    }
+    
+    fileprivate func resetLapTimer() {
+        resetTimer(self.lapStopwatch, label: self.lapTimerLabel)
+    }
+    
+    fileprivate func resetTimer(_ stopwatch: Stopwatch, label: UILabel) {
+        stopwatch.timer.invalidate()
+        stopwatch.counter = 0.0
+        label.text = "00:00:00"
     }
     
     @objc func updateMainTimer() {
