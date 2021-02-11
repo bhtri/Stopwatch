@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var lapRestButton: UIButton!
     @IBOutlet weak var lapsTableView: UITableView!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -41,6 +42,11 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         self.lapsTableView.delegate = self
         self.lapsTableView.dataSource = self
+        
+        startObserving(&UserInterfaceStyleManager.shared)
+        
+        // set switch status
+        self.darkModeSwitch.isOn = UserInterfaceStyleManager.shared.currentStyle == .dark
     }
     
     // MARK: - UI Settings
@@ -54,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBAction func playPauseTimer(_ sender: Any) {
         self.lapRestButton.isEnabled = true
         
-        self.changeButton(self.lapRestButton, title: "Lap", titleColor: .black)
+        self.changeButton(self.lapRestButton, title: "Lap", titleColor: .red)
         
         if !self.isPlay {
             unowned let weakSelf = self
@@ -74,8 +80,8 @@ class ViewController: UIViewController, UITableViewDelegate {
             self.mainStopwatch.timer.invalidate()
             self.lapStopwatch.timer.invalidate()
             self.isPlay = false
-            self.changeButton(self.playPauseButton, title: "Start", titleColor: .green)
-            self.changeButton(self.lapRestButton, title: "Reset", titleColor: .black)
+            self.changeButton(self.playPauseButton, title: "Start", titleColor: .systemRed)
+            self.changeButton(self.lapRestButton, title: "Reset", titleColor: .systemRed)
         }
     }
     
@@ -97,6 +103,15 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
     }
     
+    @IBAction func darkModeSwitchValueChanged(_ sender: UISwitch) {
+        let darkModeOn = sender.isOn
+        
+        // Store in UserDefaults
+        UserDefaults.standard.setValue(darkModeOn, forKey: UserInterfaceStyleManager.userInterfaceStyleDarkModeOn)
+        
+        // Update interface style
+        UserInterfaceStyleManager.shared.updateUserInterfaceStyle(darkModeOn)
+    }
     // MARK: - Private Helpers
     fileprivate func changeButton (_ button: UIButton, title: String, titleColor: UIColor) {
         button.setTitle(title, for: UIControl.State())

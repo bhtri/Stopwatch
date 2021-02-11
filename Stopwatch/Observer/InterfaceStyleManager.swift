@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+// Link ref: https://swiftsenpai.com/development/implement-in-app-dark-mode-using-swift-observation-protocols/
+// https://github.com/LeeKahSeng/SwiftSenpai-Observer-In-App-Dark-Mode/tree/master/SwiftSenpai-Observer-In-App-Dark-Mode/Observer
 struct UserInterfaceStyleManager {
     
     static let userInterfaceStyleDarkModeOn = "userInterfaceStyleDarkModeOn";

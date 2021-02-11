@@ -71,12 +71,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-ra-zkd">
+                                        <rect key="frame" x="306" y="20" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="darkModeSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Yvi-fd-Kkc"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="8jG-ra-zkd" firstAttribute="top" secondItem="CrS-zk-uXW" secondAttribute="top" constant="20" id="07B-XR-gmH"/>
                                     <constraint firstItem="S1y-kK-6HZ" firstAttribute="centerX" secondItem="CrS-zk-uXW" secondAttribute="centerX" id="9Bp-0e-P10"/>
                                     <constraint firstItem="jIr-FG-jlJ" firstAttribute="trailing" secondItem="S1y-kK-6HZ" secondAttribute="trailing" id="UBE-iv-GUE"/>
                                     <constraint firstItem="S1y-kK-6HZ" firstAttribute="centerY" secondItem="CrS-zk-uXW" secondAttribute="centerY" id="ipN-RL-4e8"/>
                                     <constraint firstItem="S1y-kK-6HZ" firstAttribute="top" secondItem="jIr-FG-jlJ" secondAttribute="bottom" constant="1" id="itl-K7-JCW"/>
+                                    <constraint firstAttribute="trailing" secondItem="8jG-ra-zkd" secondAttribute="trailing" constant="20" id="qVJ-rv-ri1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29e-UI-rYY">
@@ -85,7 +93,9 @@
                                     <constraint firstAttribute="width" constant="60" id="YVl-ou-gMA"/>
                                     <constraint firstAttribute="height" constant="60" id="i5s-NP-F4w"/>
                                 </constraints>
-                                <state key="normal" title="Lap"/>
+                                <state key="normal" title="Lap">
+                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lapResetTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gnG-fd-bGw"/>
                                 </connections>
@@ -121,6 +131,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="darkModeSwitch" destination="8jG-ra-zkd" id="Pt3-df-PAl"/>
                         <outlet property="lapRestButton" destination="29e-UI-rYY" id="Lzn-c5-Ve9"/>
                         <outlet property="lapTimerLabel" destination="jIr-FG-jlJ" id="q3f-hJ-drt"/>
                         <outlet property="lapsTableView" destination="uK2-kR-jM9" id="OtK-8g-2kh"/>
