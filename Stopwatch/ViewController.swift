@@ -119,6 +119,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         label.text = "00:00:00"
     }
     
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     @objc func updateMainTimer() {
         self.updateTimer(self.mainStopwatch, label: self.timerLabel)
     }
@@ -154,11 +156,11 @@ extension ViewController: UITableViewDataSource {
         let identifier: String = "lapCell"
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
-        if let labelNum = cell.viewWithTag(11) as? UILabel {
+        if let labelNum = cell.viewWithTag(1) as? UILabel {
             labelNum.text = "Lap \(laps.count - (indexPath as NSIndexPath).row)"
         }
         
-        if let labelTimer = cell.viewWithTag(12) as? UILabel {
+        if let labelTimer = cell.viewWithTag(2) as? UILabel {
             labelTimer.text = laps[laps.count - (indexPath as NSIndexPath).row - 1]
         }
         
@@ -169,7 +171,7 @@ extension ViewController: UITableViewDataSource {
 
 // MARK: - Extension
 fileprivate extension Selector {
-    static let updateMainTimer = #selector(ViewController.updateLapTimer)
+    static let updateMainTimer = #selector(ViewController.updateMainTimer)
     static let updateLapTimer = #selector(ViewController.updateLapTimer)
 }
 
