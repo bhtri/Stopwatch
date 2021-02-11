@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2E538025D4E875002B3F29 /* InterfaceStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E537F25D4E875002B3F29 /* InterfaceStyleManager.swift */; };
+		AD2E538425D4EB9A002B3F29 /* WeakStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E538325D4EB9A002B3F29 /* WeakStyleObserver.swift */; };
+		AD2E538825D4EC03002B3F29 /* InterfaceStyleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E538725D4EC03002B3F29 /* InterfaceStyleObserver.swift */; };
 		AD5ED180259ED6D7003AB542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED17F259ED6D7003AB542 /* AppDelegate.swift */; };
 		AD5ED182259ED6D7003AB542 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED181259ED6D7003AB542 /* SceneDelegate.swift */; };
 		AD5ED184259ED6D7003AB542 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5ED183259ED6D7003AB542 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD2E537F25D4E875002B3F29 /* InterfaceStyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleManager.swift; sourceTree = "<group>"; };
+		AD2E538325D4EB9A002B3F29 /* WeakStyleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakStyleObserver.swift; sourceTree = "<group>"; };
+		AD2E538725D4EC03002B3F29 /* InterfaceStyleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleObserver.swift; sourceTree = "<group>"; };
 		AD5ED17C259ED6D7003AB542 /* Stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5ED17F259ED6D7003AB542 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD5ED181259ED6D7003AB542 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD2E537E25D4E851002B3F29 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				AD2E537F25D4E875002B3F29 /* InterfaceStyleManager.swift */,
+				AD2E538725D4EC03002B3F29 /* InterfaceStyleObserver.swift */,
+				AD2E538325D4EB9A002B3F29 /* WeakStyleObserver.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
 		AD5ED173259ED6D6003AB542 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +74,7 @@
 		AD5ED17E259ED6D7003AB542 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
+				AD2E537E25D4E851002B3F29 /* Observer */,
 				AD5ED17F259ED6D7003AB542 /* AppDelegate.swift */,
 				AD5ED181259ED6D7003AB542 /* SceneDelegate.swift */,
 				AD5ED183259ED6D7003AB542 /* ViewController.swift */,
@@ -140,10 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2E538825D4EC03002B3F29 /* InterfaceStyleObserver.swift in Sources */,
 				AD5ED184259ED6D7003AB542 /* ViewController.swift in Sources */,
 				AD5ED180259ED6D7003AB542 /* AppDelegate.swift in Sources */,
 				AD5ED182259ED6D7003AB542 /* SceneDelegate.swift in Sources */,
+				AD2E538425D4EB9A002B3F29 /* WeakStyleObserver.swift in Sources */,
 				AD5ED197259EE15D003AB542 /* Stopwatch.swift in Sources */,
+				AD2E538025D4E875002B3F29 /* InterfaceStyleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
